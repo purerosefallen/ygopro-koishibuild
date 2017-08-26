@@ -82,7 +82,7 @@ bool Game::Initialize() {
 		SendMessage(hWnd, WM_NCPAINT, 1, 0);
 	}
 #endif
-		SetWindowsIcon();
+	SetWindowsIcon();
 	//main menu
 	wchar_t strbuf[256];
 	//modded
@@ -204,6 +204,7 @@ bool Game::Initialize() {
 	wCardImg->setBackgroundColor(0xc0c0c0c0);
 	wCardImg->setVisible(false);
 	imgCard = env->addImage(rect<s32>(10, 9, 10 + CARD_IMG_WIDTH, 9 + CARD_IMG_HEIGHT), wCardImg);
+	imgCard->setImage(imageManager.tCover[0]);
 	imgCard->setUseAlphaChannel(true);
 	//phase
 	wPhase = env->addStaticText(L"", rect<s32>(480, 310, 855, 330));
@@ -1457,7 +1458,7 @@ void Game::AddDebugMsg(char* msg)
 }
 void Game::ClearTextures() {
 	matManager.mCard.setTexture(0, 0);
-	mainGame->imgCard->setImage(0);
+	mainGame->imgCard->setImage(imageManager.tCover[0]);
 	mainGame->btnPSAU->setImage();
 	mainGame->btnPSDU->setImage();
 	for(int i=0; i<=4; ++i) {
