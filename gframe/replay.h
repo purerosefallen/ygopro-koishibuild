@@ -36,7 +36,6 @@ public:
 	bool OpenReplay(const wchar_t* name);
 	static bool CheckReplay(const wchar_t* name);
 	bool ReadNextResponse(unsigned char resp[64]);
-	void ReadName(wchar_t* data);
 	void ReadHeader(ReplayHeader& header);
 	void ReadData(void* data, unsigned int length);
 	int ReadInt32();
